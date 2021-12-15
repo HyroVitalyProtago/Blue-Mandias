@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,  minimum-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Blue Mandias</title>
+    
+    <meta property="og:title" content="One Systemic Opposite" />
+    <meta property="og:description" content="Blue Mandias songs repository." />
+    <meta property="og:type" content="music.album" />
+    <meta property="og:url" content="https://blue-mandias.glitch.me/" />
+    <meta property="og:image" content="https://cdn.glitch.com/2792b651-6d0d-42ac-b74e-1bfb94149717%2FIcon.png?v=1624006159233" />
+    <meta property="music:musician" content="Blue Mandias" />
+    
+    <meta name="twitter:card" content="summary" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+      html,body {
+        margin:0;
+        padding:0;
+        font-family: "Gill Sans", sans-serif;
+        height: 100%;
+        overflow: hidden;
+      }
+      
+      header {
+        /*border-color: rgba(1, 1, 1, .2);
+        border-width: 0;
+        border-bottom-width: 1px;
+        border-style: solid;*/
+        width: 100%;
+        height: 64px;
+        padding: 11px;
+        box-sizing: border-box;
+        background-color: white;
+      }
+      
+      header img {
+        height: 100%;
+        float : left;
+        margin-right: 11px;
+      }
+      
+      .group-title {
+        font-size: small;
+        font-variant: all-small-caps;
+        opacity: .6;
+      }
+      
+      main {
+        height: calc(100% - 189px);
+        /*overflow: auto;*/
+        display: flex;
+      }
+      
+      main ul {
+        list-style: none;
+        margin: 11px 0 11px 0;
+        padding: 0;
+      }
+      
+      #songs {
+        flex: 1 1 0px;
+        overflow: auto;
+      }
+      
+      #lyrics {
+        flex: 1 1 0px;
+        overflow: auto;
+        text-align: center;
+        align-self: center;
+        max-height: 100%;
+      }
+      
+      #lyrics .title {
+        margin-bottom: 25px;
+        font-weight: 700;
+      }
+      
+      #lyrics .text {
+        line-height: 22px;
+      }
+      
+      @media (max-width: 800px) {
+        #lyrics {
+          display: none;
+        }
+      }
+      
+      .song {
+        padding: 16px 11px 16px 11px;
+
+        border: 0;
+        border-bottom-width: 1px;
+        border-color: rgba(1, 1, 1, .05);
+        border-style: solid;
+        
+        color: rgba(1, 1, 1, .7);
+        font-weight: 500;
+      }
+      
+      .song:hover {
+        background: rgba(1, 1, 1, .03);
+      }
+      
+      .song .duration {
+        float: right;
+        color: rgba(1, 1, 1, .3);
+      }
+      
+      .song[current] {
+        font-weight: 700;
+      }
+      
+      footer {
+        text-align: center;
+        /*border-color: rgba(1, 1, 1, .2);
+        border-width: 0;
+        border-top-width: 1px;
+        border-style: solid;*/
+        height: 125px;
+        width: 100%;
+        padding: 11px;
+        box-sizing: border-box;
+        background-color: white;
+      }
+      
+      p {
+        margin: 2px;
+      }
+      
+      footer input[type="range"] {
+        margin: 2px;
+      }
+      
+      footer button {
+        font-size: 18px;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      
+      footer .title {
+        font-weight: 550;
+      }
+      
+      footer .time {
+        float: left;
+        font-size: 12px;
+        color: rgba(1, 1, 1, .3);
+      }
+      
+      footer .duration {
+        float: right;
+        font-size: 12px;
+        color: rgba(1, 1, 1, .3);
+      }
+      
+      input[type="range"] {
+        height: 16px;
+        -webkit-appearance: none;
+        margin: 10px 0;
+        width: 100%;
+      }
+      input[type="range"]:focus {
+        outline: none;
+      }
+      input[type="range"]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        animate: 0.2s;
+        box-shadow: 0px 0px 0px #000000;
+        background: #FFFFFF;
+        border-radius: 10px;
+        border: 1px solid #000000;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000;
+        border: 0px solid #2497E3;
+        height: 10px;
+        width: 24px;
+        border-radius: 10px;
+        background: #06080A;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -0.5px;
+      }
+      input[type="range"]:focus::-webkit-slider-runnable-track {
+        background: #FFFFFF;
+      }
+      input[type="range"]::-moz-range-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        animate: 0.2s;
+        box-shadow: 0px 0px 0px #000000;
+        background: rgba(1,1,1,.05);
+        border-radius: 10px;
+        /*border: 1px solid white;*/
+      }
+      input[type="range"]::-moz-range-thumb {
+        box-shadow: 0px 0px 0px #000000;
+        border: 0px solid #2497E3;
+        height: 10px;
+        width: 10px;
+        border-radius: 10px;
+        background: #06080A;
+        cursor: pointer;
+      }
+      input[type="range"]::-ms-track {
+        width: 100%;
+        height: 10px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+      }
+      input[type="range"]::-ms-fill-lower {
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        box-shadow: 0px 0px 0px #000000;
+      }
+      input[type="range"]::-ms-fill-upper {
+        background: #FFFFFF;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        box-shadow: 0px 0px 0px #000000;
+      }
+      input[type="range"]::-ms-thumb {
+        margin-top: 1px;
+        box-shadow: 0px 0px 0px #000000;
+        border: 0px solid #2497E3;
+        height: 10px;
+        width: 10px;
+        border-radius: 10px;
+        background: #06080A;
+        cursor: pointer;
+      }
+      input[type="range"]:focus::-ms-fill-lower {
+        background: #FFFFFF;
+      }
+      input[type="range"]:focus::-ms-fill-upper {
+        background: #FFFFFF;
+      }
+      /*input[type="range"]::before {
+        position: absolute;
+        content: "";
+        top: 8px;
+        left: 0;
+        width: var(--seek-before-width);
+        height: 3px;
+        background-color: #007db5;
+        cursor: pointer;
+      }*/
+      input[type="range"]::-moz-range-progress {
+        background-color: rgba(1, 1, 1, .2);
+        height: 10px;
+        border-radius: 10px 0 0 10px;
+      }
+      
+      .primary-btn {
+        background-color: white;
+        border-color: rgba(1, 1, 1, .1);
+        border-style: solid;
+        color: black;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        margin: 4px 2px;
+        border-radius: 50%;
+      }
+      
+      .secondary-btn,.simple-btn  {
+        background: none;
+        text-decoration: none;
+        border:none;
+      }
+      
+      .primary-btn:hover,.secondary-btn:hover,.simple-btn:hover {
+        opacity: .5;
+      }
+      
+      .primary-btn:focus,.secondary-btn:focus,.simple-btn:focus {}
+      
+      .simple-btn {
+        opacity: .2;
+      }
+      
+      .simple-btn[data-enabled=true] {
+        color: #63a2e1;
+        opacity: 1;
+      }
+      
+      .flipV {
+        display: inline-block;
+        -moz-transform: scale(1, -1);
+        -webkit-transform: scale(1, -1);
+        -o-transform: scale(1, -1);
+        -ms-transform: scale(1, -1);
+        /*transform: scale(1, -1);*/
+        transform: scale(1, -1) translate(0,-1.5px);
+      }
+      
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <template id="t-song">
+      <li id="s{{id}}" class="song" onclick="songClick({{id}})">
+        <span class="title">{{title}}</span>
+        <span class="duration">{{duration}}</span>
+      </li>
+    </template>
+    <header>
+      <!--<p>O.S.O</p>-->
+      <img src="https://cdn.glitch.com/2792b651-6d0d-42ac-b74e-1bfb94149717%2FIcon.png?v=1624006159233" />
+      <p class="album-title">One Systemic Opposite</p>
+      <p class="group-title"><span class="flipV">Blue</span> Mandias</p>
+    </header>
+    <main>
+      <section id="songs">
+        <ul></ul>
+      </section>
+      <section id="lyrics">
+        <p class="title">Another Nobody's Story</p>
+        <p class="text"></p>
+      </section>
+    </main>
+    <footer>
+      <div class="audio-player">
+        <audio
+          src="https://cdn.glitch.com/2792b651-6d0d-42ac-b74e-1bfb94149717%2FAnother%20nobody_s%20story%20-%2011_04_2021%2017.20.m4a?v=1623938087774"
+          preload="metadata"
+        >
+          Your browser does not support the audio element.
+        </audio>
+        <p class="title">Another Nobody's Story</p>
+        <input type="range" id="seek-slider" max="100" value="0" />
+        <span class="time">0:00</span>
+        <span class="duration">0:00</span>
+        <button class="random simple-btn" onclick="randomClick()"><i class="fa fa-random fa-fw"></i></button>
+        <button class="previous secondary-btn" onclick="previousClick()"><i class="fa fa-fast-backward fa-fw"></i></button>
+        <button class="play primary-btn"><i class="fa fa-play fa-fw"></i></button>
+        <button class="next secondary-btn" onclick="nextClick()"><i class="fa fa-fast-forward fa-fw"></i></button>
+        <button class="replay simple-btn" onclick="replayClick()"><i class="fa fa-repeat fa-fw"></i></button>
+      </div>
+    </footer>
+    <script type="text/javascript">
+      const audio = document.querySelector("audio");
+      const seekSlider = document.getElementById("seek-slider");
+      const currentTimeContainer = document.querySelector(".audio-player .time");
+      
+      let songs = [];
+      let listened = [0]; //TODO
+      let current = 0;
+      let random = false;
+      let replay = false;
+      
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+      
+      const randomClick = () => {
+        random = !random;
+        document.querySelector(".random").setAttribute('data-enabled', random);
+      }
+      const replayClick = () => {
+        audio.loop = !audio.loop;
+        document.querySelector(".replay").setAttribute('data-enabled', audio.loop);
+      }
+      const previousClick = () => {
+        if (current > 0) {
+          songClick(current-1);
+        } else {
+          songClick(0);
+        }
+      }
+      const nextClick = () => {
+        if (random) {
+          const next = getRandomInt(songs.length-1);
+          songClick(next);
+        } else if (current+1 <= songs.length-1) {
+          songClick(current+1);
+        } else {
+          songClick(0); // loop to the beginning of the album
+        }
+      }
+      const songClick = (id) => {
+        document.querySelector("#songs ul li:nth-child("+(current+1)+")").removeAttribute('current');
+        current = id;
+        document.querySelector("#songs ul li:nth-child("+(id+1)+")").setAttribute('current', true);
+        document.querySelector(".audio-player .title").innerHTML = songs[current].title;
+        document.querySelector(".audio-player .duration").innerHTML = songs[current].duration;
+        document.querySelector("#lyrics .title").innerHTML = songs[current].title;
+        document.querySelector("#lyrics .text").innerHTML = songs[current].lyrics ? songs[current].lyrics.replaceAll('\n', '<br />') : "Not available for now";
+        
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: songs[current].title,
+            artist: 'Blue Mandias',
+            album: 'One Systemic Opposite',
+            artwork: [
+              { src: 'https://cdn.glitch.com/2792b651-6d0d-42ac-b74e-1bfb94149717%2FIcon.png?v=1624006159233', sizes: '128x128', type: 'image/png' }
+              /*
+              { src: 'https://dummyimage.com/96x96',   sizes: '96x96',   type: 'image/png' },
+              { src: 'https://dummyimage.com/128x128', sizes: '128x128', type: 'image/png' },
+              { src: 'https://dummyimage.com/192x192', sizes: '192x192', type: 'image/png' },
+              { src: 'https://dummyimage.com/256x256', sizes: '256x256', type: 'image/png' },
+              { src: 'https://dummyimage.com/384x384', sizes: '384x384', type: 'image/png' },
+              { src: 'https://dummyimage.com/512x512', sizes: '512x512', type: 'image/png' },
+              */
+            ]
+          });
+        }
+        
+        audio.src = songs[current].content;
+        seekSlider.value = 0;
+        audio.load();
+        play();
+      }
+      
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.setActionHandler('previoustrack', previousClick);
+        navigator.mediaSession.setActionHandler('nexttrack', nextClick);
+      }
+      
+      audio.addEventListener('ended', () => {
+        if (random) {
+          const next = getRandomInt(songs.length-1);
+          songClick(next);
+        } else {
+          nextClick();
+        }
+      });
+      
+      // audio.audioTracks
+      // autoplay
+      // crossOrigin
+      // currentSrc
+      // loop
+      // volume
+
+      //const bufferedAmount = audio.buffered.end(audio.buffered.length - 1);
+      //const seekableAmount = audio.seekable.end(audio.seekable.length - 1);
+
+      const calculateTime = secs => {
+        const minutes = Math.floor(secs / 60);
+        const seconds = Math.floor(secs % 60);
+        const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+        return `${minutes}:${returnedSeconds}`;
+      };
+
+      const durationContainer = document.querySelector(
+        ".audio-player .duration"
+      );
+      const displayDuration = () => {
+        durationContainer.textContent = calculateTime(audio.duration);
+      };
+
+      const setSliderMax = () => {
+        seekSlider.max = Math.floor(audio.duration);
+      };
+      
+      let rAF = null;
+      const whilePlaying = () => {
+        seekSlider.value = Math.floor(audio.currentTime);
+        currentTimeContainer.textContent = calculateTime(seekSlider.value);
+        audio.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
+        raf = requestAnimationFrame(whilePlaying);
+      }
+      
+      seekSlider.addEventListener('input', () => {
+        currentTimeContainer.textContent = calculateTime(seekSlider.value);
+        if(!audio.paused) {
+          cancelAnimationFrame(raf);
+        }
+      });
+
+      seekSlider.addEventListener('change', () => {
+        audio.currentTime = seekSlider.value;
+        if(!audio.paused) {
+          requestAnimationFrame(whilePlaying);
+        }
+      });
+
+      const playBtn = document.querySelector(".audio-player .play");
+      const play = () => {
+        audio.play();
+        if (audio.paused) return;
+        requestAnimationFrame(whilePlaying);
+        playBtn.innerHTML = '<i class="fa fa-pause fa-fw"></i>';
+      }
+      
+      const pause = () => {
+        audio.pause();
+        cancelAnimationFrame(rAF);
+        playBtn.innerHTML = '<i class="fa fa-play fa-fw"></i>';
+      }
+      playBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          play();
+        } else {
+          pause();
+        }
+      });
+
+      audio.addEventListener("timeupdate", () => {
+        seekSlider.value = Math.floor(audio.currentTime);
+        currentTimeContainer.textContent = calculateTime(seekSlider.value);
+      });
+
+      const songsList = document.querySelector('#songs ul');
+      const songTemplate = document.querySelector('#t-song');
+      const loadSongs = () => {
+        fetch('/songs.json')
+          .then(response => response.json())
+          .then(sgs => {
+            songs = sgs;
+            for (let i = 0; i < songs.length; i++) {
+              //console.log(i + ' ' + songs[i].title);
+              const clone = songTemplate.cloneNode(true);
+              clone.innerHTML = clone.innerHTML.replaceAll('{{id}}', i);
+              clone.innerHTML = clone.innerHTML.replaceAll('{{title}}', songs[i].title);
+              clone.innerHTML = clone.innerHTML.replaceAll('{{duration}}', songs[i].duration);
+              const songEl = clone.content.firstElementChild;
+              songsList.appendChild(songEl);
+            }
+            //songClick(0); // TODO TEST
+          });
+      }
+      
+      loadSongs();
+      
+      
+      const start = () => {
+        displayDuration();
+        setSliderMax();
+        seekSlider.value = 0;
+        //audio.play();
+      };
+
+      /*if (audio.readyState > 0) {
+        start();
+      } else {*/
+        audio.addEventListener("loadedmetadata", start);
+      //}
+    </script>
+  </body>
+</html>
