@@ -526,7 +526,7 @@
       const songsList = document.querySelector('#songs ul');
       const songTemplate = document.querySelector('#t-song');
       const loadSongs = () => {
-        fetch('/songs.json')
+        fetch('songs.json')
           .then(response => response.json())
           .then(sgs => {
             songs = sgs;
